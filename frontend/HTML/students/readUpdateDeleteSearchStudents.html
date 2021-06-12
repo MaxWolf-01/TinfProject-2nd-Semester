@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Students</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../CSS/myStyle.css" />
+    <script src="../../js/students/read.js"></script>
+    <script src="../../js/students/delete.js"></script>
+    <script src="../../js/students/update.js"></script>
+    <script src="../../js/students/search.js"></script>
+    <title>Students</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark">
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="../../../index.html"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-compass"></i> Manage
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="createStudents.html">Add Students</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Students</h1>
+    </div>
+</div>
+
+<div id = "scrollTo"></div>
+
+<div id="update-form"  style="display: none">
+    <h3 id="update-student-header">Update Student</h3>
+    <form action="#" method="POST">
+        <div class="input-group">
+            <div class="container">
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Name</span>
+                    </div>
+                    <input type="text" id ="update-name" name="update-name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Class</span>
+                    </div>
+                    <input type="text" id ="update-class" name="update-class" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">GPA</span>
+                    </div>
+                    <input type="number" step="0.1"  id ="update-gpa" name="update-gpa" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <input id="btn-update-student" class="btn btn-outline-success" type="submit" value="Update">
+                        <input id="btn-update-student-cancel" class="btn btn-outline-danger" value="Cancel" type="submit" onclick="hideUpdateForm()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="search-form"  style="display: none">
+    <h3 id="search-student-header">Search Student</h3>
+    <form action="#" method="POST">
+        <div class="input-group">
+            <div class="container">
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Name</span>
+                    </div>
+                    <input type="text" id ="search-name" name="search-name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Class</span>
+                    </div>
+                    <input type="text" id ="search-class" name="search-class" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">GPA</span>
+                    </div>
+                    <input type="number" step="0.1"  id ="search-gpa" name="search-gpa" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="row">
+                    <div class="input-group-prepend">
+                        <input id="btn-search-student" class="btn btn-outline-success" type="button" value="Search"> <!--changed to button-->
+                        <input id="btn-search-student-cancel" class="btn btn-outline-danger"  type="submit" value="Cancel" onclick="hideSearchForm()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid my-container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <button type="button" class="btn btn-dark col-md-2 table-btns" id="show-students" onclick="showAllStudents()">Show all students</button>
+        <div class="col-md-1"></div>
+        <button type="button" class="btn btn-dark col-md-2 table-btns scrollToForm" id="search-students" onclick="displaySearchForm()">Search for Student</button>
+    </div>
+    <div class="row" id = "scrollToTable">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Gpa</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody id='tbody'>
+                </tbody>
+            </table>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid p-2 text-white text-center mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <p>&copy; Maximilian Wolf 2021</p>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-unstyled">
+                <li>Contact</li>
+                <li>Impressum</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

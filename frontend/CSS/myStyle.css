@@ -1,0 +1,65 @@
+.navbar, .dropdown-menu, footer
+{
+    background-color: rgb(26, 26, 32);
+}
+
+body{
+    margin-bottom: 200px;
+}
+
+/*#load-students{*/
+/*    margin-left: 45%;*/
+/*    margin-bottom: 1%;*/
+/*}*/
+
+/*.table{*/
+/*    max-width: 70%;*/
+/*    margin-left: 15%;*/
+/*}*/
+
+.lead, .dropdown-item{
+    color: #f3ecec;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+}
+
+.form-control{
+    max-width: 80%;
+    margin: 1%;
+}
+
+.input-group-prepend{
+    margin: 1%;
+}
+
+.input-group-text{
+    min-width: 70px;
+}
+
+.input-group
+{
+    padding-left: 7%;
+}
+
+#update-student-header, #search-student-header, #update-teacher-header, #search-teacher-header{
+    padding-left: 16%;
+}
+
+/*#btn-update-student, #btn-update-teacher{*/
+/*    margin-bottom: 15%;*/
+
+
+#btn-update-student-cancel, #btn-search-student-cancel, #btn-update-teacher-cancel, #btn-search-teacher-cancel{
+    margin-left: 10%;
+    max-height: 38px;
+}
+
+.table-btns{
+    margin: 0 1% 1%;
+}
+
+
+
