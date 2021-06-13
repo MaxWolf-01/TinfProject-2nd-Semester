@@ -15,7 +15,7 @@ $data = array('id'=>$_POST['studentId'], 'name'=>$_POST['name'], 'class'=>$_POST
 
 $student->id = $data['id'];
 $student->name = $data['name'];
-$student->class = $data['class'];
+$student->classID = $data['class'];
 $student->gpa = $data['gpa'];
 
 if($student->update()){

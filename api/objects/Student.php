@@ -4,8 +4,8 @@ class Student{
     private $table_name = "students";
 
     public $id;
+    public $classID; // TODO change EVERYTHING
     public $name;
-    public $class;
     public $gpa;
 
     public function __construct($db)
@@ -14,7 +14,7 @@ class Student{
     }
 
     function read(){
-        $query = "SELECT s.id, s.name, s.class, s.gpa
+        $query = "SELECT s.id, s.name, s.classID, s.gpa
                   FROM $this->table_name s";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -25,7 +25,7 @@ class Student{
     {
         $query = "INSERT INTO
                  $this->table_name
-                 (name, class, gpa) 
+                 (name, classID, gpa) 
                  VALUES
                  (:name, :class, :gpa)";
         $stmt = $this->conn->prepare($query);
@@ -35,7 +35,7 @@ class Student{
 //        $this->class = htmlspecialchars(strip_tags($this->gpa));
 
         $stmt->bindParam(':name',$this->name);
-        $stmt->bindParam(':class',$this->class);
+        $stmt->bindParam(':classID',$this->classID);
         $stmt->bindParam(':gpa',$this->gpa);
         if ($stmt->execute())
             return true;
@@ -58,14 +58,14 @@ class Student{
         $query = "UPDATE $this->table_name
                   SET
                       name = :name,
-                      class = :class,
+                      classID = :classID,
                       gpa = :gpa
                   WHERE
                       id = :id";
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':class', $this->class);
+        $stmt->bindParam(':classID', $this->classID);
         $stmt->bindParam(':gpa', $this->gpa);
         $stmt->bindParam(':id', $this->id);
 
@@ -77,16 +77,16 @@ class Student{
     public function search(array $keywords)
     {
         $query =   "SELECT
-                        s.id, s.name, s.class, s.gpa
+                        s.id, s.name, s.classID, s.gpa
                     FROM
                         $this->table_name s
                     WHERE
-                        s.name LIKE ? OR s.class LIKE ? OR s.gpa LIKE ?"; //TODO more specific queries
+                        s.name LIKE concat('%', ?, '%') OR s.classID LIKE concat(?, '%') OR s.gpa LIKE ?"; //todo queries fot avg gpa,..?
 
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(1, $keywords['name']);
-        $stmt->bindParam(2, $keywords['class']);
+        $stmt->bindParam(2, $keywords['classID']);
         $stmt->bindParam(3, $keywords['gpa']);
 
         $stmt->execute();

@@ -57,7 +57,8 @@ function displayUpdateForm(id){
     document.getElementById('btn-update-student').style.display = 'block';
     updateForm.name = id
     let student
-    JSON.parse(sessionStorage.getItem('students')).forEach(element => {if(element.id === id) student = element}) //binary search for larger db??
+    JSON.parse(sessionStorage.getItem('students'))
+        .forEach(element => {if(element.id === id) student = element}) //binary search for larger db??
     document.getElementById('update-name') .value = student.name
     document.getElementById('update-class').value = student.class
     document.getElementById('update-gpa')  .value = student.gpa
