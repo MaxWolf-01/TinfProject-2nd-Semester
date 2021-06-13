@@ -25,14 +25,15 @@ function showAllClasses() {
 
 function appendClasses(data) {
     let table = document.getElementById('tbody');
-    table.innerHTML = null;
+    table.innerHTML = null
     let records = data.records;
+    // alert(JSON.stringify(data))
     sessionStorage.setItem('classes', JSON.stringify(records))
     for (let i = 0; i < records.length; i++){
         let tr = document.createElement('tr');
         let classesID =  `${records[i].id}`;
         tr.innerHTML =
-            `
+        `
         <script src="read.js"></script>
         <td>${records[i].id}</td>
         <td>${records[i].name}</td>

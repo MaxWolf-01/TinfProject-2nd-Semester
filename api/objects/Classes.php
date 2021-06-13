@@ -3,7 +3,6 @@ class Classes
 {
     private $conn;
     private $table_name = "classes";
-
     public $id;
     public $mainTeacherID;
     public $name;
@@ -15,8 +14,10 @@ class Classes
 
     function read()
     {
-        $query = "SELECT c.id, c.name, c.mainTeacherID
-                  FROM $this->table_name c";
+        $query = "SELECT c.id, t.abbreviation, c.name
+                  FROM $this->table_name c
+                  LEFT JOIN teachers t 
+                  ON c.mainTeacherID = t.id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

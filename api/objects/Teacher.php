@@ -75,7 +75,8 @@ class Teacher{
                     FROM
                         $this->table_name t
                     WHERE
-                        t.name LIKE concat('%', ?, '%') OR t.abbreviation LIKE concat( ?, '%')";  // TODO %%
+                        t.name LIKE concat('%', ?, '%') OR t.abbreviation LIKE concat( ?, '%')
+                    ORDER BY t.name";
 
         $stmt = $this->conn->prepare($query);
 
@@ -85,5 +86,38 @@ class Teacher{
         $stmt->execute();
         return $stmt;
     }
+
+//    public function readSingle()
+//    {
+//        $query = "SELECT
+//                c.name as category_name, p.id, p.name, p.description, p.price, p.category_id, p.created
+//            FROM
+//                " . $this->table_name . " p
+//                LEFT JOIN
+//                    categories c
+//                        ON p.category_id = c.id
+//            WHERE
+//                p.id = ?
+//            LIMIT
+//                0,1";
+//
+//        // prepare query statement
+//        $stmt = $this->conn->prepare( $query );
+//
+//        // bind id of product to be updated
+//        $stmt->bindParam(1, $this->id);
+//
+//        // execute query
+//        $stmt->execute();
+//
+//        // get retrieved row
+//        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+//
+//        // set values to object properties
+//        $this->name = $row['name'];
+//        $this->price = $row['price'];
+//        $this->description = $row['description'];
+//        $this->category_id = $row['category_id'];
+//        $this->category_name = $row['category_name'];
 }
 ?>

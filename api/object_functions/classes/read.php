@@ -1,4 +1,6 @@
 <?php
+//xdebug_disable(); //!
+//error_reporting(0); //!
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 //4.3
@@ -23,7 +25,7 @@ if($num > 0){
         $classes_item = array(
             'id'=> $id,
             'name'=> $name,
-            'mainTeacherID'=> $mainTeacherID
+            'mainTeacherID'=> $abbreviation // ok?
         );
         array_push($classes_arr['records'], $classes_item);
     }

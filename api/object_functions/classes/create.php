@@ -12,10 +12,13 @@ $db = $database->getConnection();
 $classes = new Classes($db);
 
 $data = array('name'=>$_POST['name'], 'mainTeacherID'=>$_POST['mainTeacherID']);
+if(!is_numeric($data['mainTeacherID']))
+    $data['mainTeacherID'] = null;
+
+//$data = array('name'=>'bruh', 'mainTeacherID'=>null); // works
 
 if(
-    !empty($data['name']) &&
-    !empty($data['mainTeacherID'])
+    !empty($data['name'])
 ){
     $classes->name = $data['name'];
     $classes->mainTeacherID = $data['mainTeacherID'];

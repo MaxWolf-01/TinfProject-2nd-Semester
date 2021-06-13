@@ -81,7 +81,8 @@ class Student{
                     FROM
                         $this->table_name s
                     WHERE
-                        s.name LIKE concat('%', ?, '%') OR s.classID LIKE concat(?, '%') OR s.gpa LIKE ?"; //todo queries fot avg gpa,..?
+                        s.name LIKE concat('%', ?, '%') OR s.classID LIKE concat(?, '%') OR s.gpa LIKE ?
+                    ORDER BY s.name";                               //todo queries fot avg gpa, order by user input,..?
 
         $stmt = $this->conn->prepare($query);
 
