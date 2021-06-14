@@ -44,17 +44,17 @@ footer{
     padding-left: 7%;
 }
 
-#update-student-header, #search-student-header, #update-teacher-header, #search-teacher-header{
-    padding-left: 16%;
+.header-class-1{
+    padding-left: 16% !important;
 }
 
 /*#btn-update-student, #btn-update-teacher{*/
 /*    margin-bottom: 15%;*/
 
 
-#btn-update-student-cancel, #btn-search-student-cancel, #btn-update-teacher-cancel, #btn-search-teacher-cancel{
-    margin-left: 10%;
-    max-height: 38px;
+.cancel-1{
+    margin-left: 10%!important;
+    max-height: 38px!important;
 }
 
 .table-btns{
