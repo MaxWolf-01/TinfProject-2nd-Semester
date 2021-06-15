@@ -17,7 +17,8 @@ class Student{
         $query = "SELECT s.id, s.name, c.name, s.gpa
                   FROM $this->table_name s
                   LEFT JOIN classes c
-                  ON s.classID = c.id";
+                  ON s.classID = c.id
+                  ORDER BY s.name";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

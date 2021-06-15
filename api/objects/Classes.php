@@ -18,7 +18,8 @@ class Classes
         $query = "SELECT c.id, t.abbreviation, c.name
                   FROM $this->table_name c
                   LEFT JOIN teachers t 
-                  ON c.mainTeacherID = t.id";
+                  ON c.mainTeacherID = t.id
+                  ORDER BY c.name";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
