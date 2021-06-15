@@ -5,9 +5,11 @@ $(document).ready(function() {
 });
 
 function searchClasses(){
+    let mainTeacher = document.getElementById('search-mainTeacherID').value
+    let mainTeacherID = JSON.parse(mainTeacher).id === null ? "" : JSON.parse(mainTeacher).id
     let data = new FormData();
     data.append('name', $('#search-name').val())
-    data.append('mainTeacherID', $('#search-mainClassesID').val())
+    data.append('mainTeacherID', mainTeacherID)
     let url = 'http://localhost/TinfProject-2nd-Semester/api/object_functions/classes/search.php'
     fetch(url, {
         method: 'POST',
@@ -17,7 +19,7 @@ function searchClasses(){
             return response.json()
         })
         .then(function (data) {
-            appendClasses(data)
+            appendClasses(data) // TODO
         })
         .catch(function (err) {
             console.log(err)

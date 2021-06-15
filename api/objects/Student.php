@@ -14,8 +14,10 @@ class Student{
     }
 
     function read(){
-        $query = "SELECT s.id, s.name, s.classID, s.gpa
-                  FROM $this->table_name s";
+        $query = "SELECT s.id, s.name, c.name, s.gpa
+                  FROM $this->table_name s
+                  LEFT JOIN classes c
+                  ON s.classID = c.id";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -27,7 +29,7 @@ class Student{
                  $this->table_name
                  (name, classID, gpa) 
                  VALUES
-                 (:name, :class, :gpa)";
+                 (:name, :classID, :gpa)";
         $stmt = $this->conn->prepare($query);
 
 //        $this->name = htmlspecialchars(strip_tags($this->name));

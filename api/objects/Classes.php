@@ -3,6 +3,7 @@ class Classes
 {
     private $conn;
     private $table_name = "classes";
+
     public $id;
     public $mainTeacherID;
     public $name;
@@ -70,17 +71,20 @@ class Classes
         return false;
     }
 
-    public function search(array $keywords)
+    public function search(array $keywords, bool $searchNull)
     {
+        $where = $searchNull ? "c.mainTeacherID IS NULL"
+                             : "c.name LIKE concat(?, '%') OR c.mainTeacherID LIKE ?";
+
         $query = "SELECT
-                        c.id, c.name, c.mainTeacherID
-                    FROM
-                        $this->table_name c
-                    WHERE
-                        c.name LIKE concat(?, '%') OR c.mainTeacherID LIKE ?";
+                    c.id, c.name, c.mainTeacherID
+                FROM
+                    $this->table_name c
+                WHERE
+                    $where
+                ORDER BY c.name";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->bindParam(1, $keywords['name']);
         $stmt->bindParam(2, $keywords['mainTeacherID']);
 

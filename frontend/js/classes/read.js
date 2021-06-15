@@ -60,7 +60,7 @@ function displayUpdateForm(id){
     JSON.parse(sessionStorage.getItem('classes'))
         .forEach(element => {if(element.id === id) classes = element}) //binary search for larger db??
     document.getElementById('update-name') .value = classes.name
-    document.getElementById('update-mainClassesID')  .value = classes.mainTeacherID
+    document.getElementById('update-mainClassesID').value = classes.mainTeacherID
 }
 
 function hideUpdateForm(){

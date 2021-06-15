@@ -23,7 +23,7 @@ function filterEmptyKeyWords($var): bool
     return ($var !== NULL && $var !== FALSE && $var !== "");
 }
 
-$stmt = $classes->search($keywords);
+$stmt = $classes->search($keywords, $keywords['mainTeacherID'] == null);
 $num = $stmt->rowCount();
 
 if($num>0){

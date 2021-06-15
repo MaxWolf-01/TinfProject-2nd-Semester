@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../CSS/myStyle.css" />
   <script src="../../js/classes/create.js"></script>
+  <script src="../../js/classes/fillTeacherSelect.js"></script>
   <title>Create Classes</title>
 </head>
 <body>
@@ -39,6 +40,15 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="readUpdateDeleteSearchClasses.html">View Classes</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../students/readUpdateDeleteSearchStudents.html">Students</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../teachers/readUpdateDeleteSearchTeachers.html">Teachers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../classes/readUpdateDeleteSearchClasses.html">Classes</a>
       </li>
     </ul>
   </div>
@@ -67,7 +77,7 @@
       </div>
       <div class="row">
         <div class="input-group-prepend">
-          <input id="btn-create-classes" class="btn btn-outline-success" type="submit" value="Submit">
+          <input id="btn-create-classes" class="btn btn-outline-success" type="button" value="Submit"> <!--TODO cahnged-->
         </div>
       </div>
     </div>
