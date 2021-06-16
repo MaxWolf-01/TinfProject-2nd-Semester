@@ -14,9 +14,7 @@ $db = $database->getConnection();
 
 $student = new Student($db);
 
-//$keywords= array('name'=>$_POST['name'], 'class'=>$_POST['class'], 'gpa'=>$_POST['gpa']);
-$keywords= array('name'=>$_POST['name'], 'class'=>'1', 'gpa'=>$_POST['gpa']);
-
+$keywords= array('name'=>$_POST['name'], 'class'=>$_POST['class'], 'gpa'=>$_POST['gpa']); //not working
 $keywords= array_filter($keywords, "filterEmptyKeyWords");
 
 function filterEmptyKeyWords($var): bool
@@ -37,7 +35,7 @@ if($num>0){
         $student_item=array(
             "id" => $id,
             "name" => $name,
-            "class" => $classID,
+            "class" => $class,
             "gpa" => $gpa
         );
 
