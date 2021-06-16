@@ -22,6 +22,7 @@
     <script src="../../js/students/delete.js"></script>
     <script src="../../js/students/update.js"></script>
     <script src="../../js/students/search.js"></script>
+    <script src="../../js/students/fillClassSelect.js"></script>
     <script src="../../js/style.js"></script>
     <title>Students</title>
 </head>
@@ -83,7 +84,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Class</span>
                     </div>
-                    <input type="text" id ="update-class" name="update-class" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                    <select class="form-select" id ="update-class" name="update-mainTeacherID" aria-label="Default select example"></select>
                 </div>
                 <div class="row">
                     <div class="input-group-prepend">
@@ -117,7 +118,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Class</span>
                     </div>
-                    <input type="text" id ="search-class" name="search-class" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <select class="form-select" id ="search-class" name="search-class" aria-label="Default select example"></select>
                 </div>
                 <div class="row">
                     <div class="input-group-prepend">

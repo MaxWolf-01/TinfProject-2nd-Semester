@@ -3,6 +3,10 @@
     background-color: rgb(26, 26, 32);
 }
 
+.navbar{
+    min-height: 70px;
+}
+
 body{
     margin-bottom: 200px;
 }
@@ -21,7 +25,7 @@ footer{
     margin: 1%;
 }
 
-.input-group-prepend{
+.input-group-prepend, .form-select{
     margin: 1%;
 }
 
@@ -38,10 +42,6 @@ footer{
     padding-left: 16% !important;
 }
 
-/*#btn-update-student, #btn-update-teacher{*/
-/*    margin-bottom: 15%;*/
-
-
 .cancel-1{
     margin-left: 10%!important;
     max-height: 38px!important;
@@ -50,6 +50,37 @@ footer{
 .table-btns{
     margin: 0 1% 1%;
 }
+
+.card-title, .card-text{
+    text-align: center;
+}
+
+.card{
+    margin: 1%;
+}
+
+.card-row
+{
+    margin-left: 22%;
+}
+
+.card-btn{
+    margin-left: 37%;
+    margin-top: 20px;
+    height: 40px;
+}
+
+
+/*.carousel-inner{*/
+/*    margin-left: 38%;*/
+/*    margin-top: 3%;*/
+/*}
+
+/*!*.carousel-inner{*!*/
+/*!*    margin: 5%;*!*/
+/*!*}*!*/
+
+
 
 
 

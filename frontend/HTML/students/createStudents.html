@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../CSS/myStyle.css" />
     <script src="../../js/students/create.js"></script>
+    <script src="../../js/students/fillClassSelect.js"></script>
     <title>Create Students</title>
 </head>
 <body>
@@ -72,7 +73,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Class</span>
                 </div>
-                <input type="text" id ="create-class" name="create-class" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                <select class="form-select" id ="create-class" name="create-mainTeacherID" aria-label="Default select example"></select>
             </div>
             <div class="row">
                 <div class="input-group-prepend">

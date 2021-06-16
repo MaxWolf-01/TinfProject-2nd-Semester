@@ -36,7 +36,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="far fa-compass"></i> Manage
+                    <i class="far fa-compass"></i> Add
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="frontend/HTML/students/createStudents.html">Add Students</a>
@@ -59,9 +59,38 @@
 
   <div class="container">
     <div class="jumbotron text-center">
-      <h1>Teachers / Students Database</h1>
+      <h1>School Database</h1>
+        <h5>This Website enables you to store information about students teachers and their classes in a database </h5>
     </div>
   </div>
+
+<div class="container-fluid my-container-fluid">
+    <div class="row card-row">
+        <div class="card col-md-4">
+            <div class="card-body">
+                <h5 class="card-title">Students</h5>
+                <p class="card-text">Students with name, class and GPA</p>
+                <a  class="btn btn-dark col-md-3 card-btn" href="frontend/HTML/students/readUpdateDeleteSearchStudents.html">Students</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <h5 class="card-title">Teachers</h5>
+                <p class="card-text">Teachers with name and abbreviation</p>
+                <a class="btn btn-dark col-md-3 card-btn" href="frontend/HTML/teachers/readUpdateDeleteSearchTeachers.html">Teachers</a>
+            </div>
+        </div>
+    </div>
+    <div class="row card-row">
+        <div class="card col-md-4">
+            <div class="card-body">
+                <h5 class="card-title">Classes</h5>
+                <p class="card-text">Classes with name and main teacher.</p>
+                <a class="btn btn-dark col-md-3 card-btn" href="frontend/HTML/classes/readUpdateDeleteSearchClasses.html">Classes</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer class="container-fluid p-2 text-white text-center mt-4">
     <div class="row">

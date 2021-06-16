@@ -27,7 +27,6 @@ function appendClasses(data) {
     let table = document.getElementById('tbody');
     table.innerHTML = null
     let records = data.records;
-    // alert(JSON.stringify(data))
     sessionStorage.setItem('classes', JSON.stringify(records))
     for (let i = 0; i < records.length; i++){
         let tr = document.createElement('tr');

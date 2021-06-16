@@ -1,4 +1,6 @@
 <?php
+xdebug_disable(); //!
+error_reporting(0); //!
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 //4.3
@@ -21,7 +23,7 @@ if($num > 0){
         $student_item = array(
             'id'=> $id,
             'name'=> $name,
-            'class'=> $class,
+            'class'=> $className,
             'gpa'=> $gpa
         );
         array_push($students_arr['records'], $student_item);

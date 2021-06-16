@@ -14,7 +14,7 @@ class Student{
     }
 
     function read(){
-        $query = "SELECT s.id, s.name, c.name, s.gpa
+        $query = "SELECT s.id, s.name, c.name AS className, s.gpa
                   FROM $this->table_name s
                   LEFT JOIN classes c
                   ON s.classID = c.id
@@ -85,7 +85,7 @@ class Student{
                         $this->table_name s
                     WHERE
                         s.name LIKE concat('%', ?, '%') OR s.classID LIKE concat(?, '%') OR s.gpa LIKE ?
-                    ORDER BY s.name";                               //todo queries fot avg gpa, order by user input,..?
+                    ORDER BY s.name";
 
         $stmt = $this->conn->prepare($query);
 
